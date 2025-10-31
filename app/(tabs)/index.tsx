@@ -10,7 +10,7 @@ import { useRouter } from 'expo-router';
 import { useSubscription } from '@/contexts/SubscriptionContext';
 import { ClientWithCategory } from '@/types/subscription';
 import Colors from '@/constants/colors';
-import { ArrowUpDown, Calendar, Mail, Phone, ChevronRight } from 'lucide-react-native';
+import { ArrowUpDown, Calendar, ChevronRight } from 'lucide-react-native';
 
 type SortOption = 'name' | 'expiry';
 
@@ -147,21 +147,6 @@ export default function HomeScreen() {
                 </View>
               </View>
 
-              <View style={styles.clientCardBody}>
-                {client.email ? (
-                  <View style={styles.contactRow}>
-                    <Mail size={16} color={Colors.light.textSecondary} />
-                    <Text style={styles.contactText}>{client.email}</Text>
-                  </View>
-                ) : null}
-                {client.phone ? (
-                  <View style={styles.contactRow}>
-                    <Phone size={16} color={Colors.light.textSecondary} />
-                    <Text style={styles.contactText}>{client.phone}</Text>
-                  </View>
-                ) : null}
-              </View>
-
               <View style={styles.clientCardFooter}>
                 <View style={styles.expiryInfo}>
                   <Calendar size={16} color={Colors.light.textSecondary} />
@@ -249,7 +234,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   clientInfo: {
     flexDirection: 'row',
@@ -283,19 +268,6 @@ const styles = StyleSheet.create({
   statusBadgeText: {
     fontSize: 12,
     fontWeight: '700' as const,
-  },
-  clientCardBody: {
-    gap: 6,
-    marginBottom: 10,
-  },
-  contactRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  contactText: {
-    fontSize: 14,
-    color: Colors.light.textSecondary,
   },
   clientCardFooter: {
     flexDirection: 'row',
