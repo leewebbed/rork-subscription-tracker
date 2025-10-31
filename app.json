@@ -16,7 +16,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "app.rork.subscription-tracker",
-      "deploymentTarget": "13.4"
+      "usesIcloudStorage": false
     },
     "android": {
       "adaptiveIcon": {
