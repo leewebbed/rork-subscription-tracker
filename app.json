@@ -28,9 +28,10 @@
       },
       "package": "app.rork.subscription_tracker"
     },
-    "web": {
-      "favicon": "./assets/images/favicon.png"
-    },
+		"web": {
+		"favicon": "./assets/images/favicon.png",
+		"bundler": "metro"
+		},
     "plugins": [
       [
         "expo-router",
