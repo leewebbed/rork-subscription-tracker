@@ -18,7 +18,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "app.rork.subscription-tracker",
+      "bundleIdentifier": "app.rork.subscription-tracker1",
       "usesIcloudStorage": false
     },
     "android": {
@@ -26,13 +26,13 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "app.rork.subscription_tracker"
+      "package": "app.rork.subscription_tracker1"
     },
-		"web": {
-		"favicon": "./assets/images/favicon.png",
-		"bundler": "metro",
-		"output": "static"
-		},
+    "web": {
+      "favicon": "./assets/images/favicon.png",
+      "bundler": "metro",
+      "output": "static"
+    },
     "plugins": [
       [
         "expo-router",
