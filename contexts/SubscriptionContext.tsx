@@ -12,6 +12,116 @@ const DEFAULT_CATEGORIES: Category[] = [
   { id: '3', name: 'Social Media Management', color: '#8B5CF6', createdAt: new Date().toISOString() },
 ];
 
+const DEFAULT_CLIENTS: Client[] = [
+  {
+    id: '1001',
+    name: 'Acme Corporation',
+    email: 'contact@acmecorp.com',
+    phone: '+1 555 0100',
+    categoryId: '1',
+    duration: 'ONE_YEAR',
+    startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+    payments: [
+      {
+        id: 'pay1001',
+        amount: 299.99,
+        date: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+        notes: 'Annual subscription payment',
+      },
+    ],
+  },
+  {
+    id: '1002',
+    name: 'TechStart Inc',
+    email: 'hello@techstart.io',
+    phone: '+1 555 0200',
+    categoryId: '2',
+    duration: 'ONE_MONTH',
+    startDate: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString(),
+    payments: [
+      {
+        id: 'pay1002',
+        amount: 49.99,
+        date: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString(),
+        notes: 'Monthly advertising fee',
+      },
+    ],
+  },
+  {
+    id: '1003',
+    name: 'Green Earth Co',
+    email: 'info@greenearth.org',
+    phone: '+1 555 0300',
+    categoryId: '3',
+    duration: 'ONE_MONTH',
+    startDate: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString(),
+    payments: [
+      {
+        id: 'pay1003',
+        amount: 199.00,
+        date: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString(),
+        notes: 'Social media management',
+      },
+    ],
+  },
+  {
+    id: '1004',
+    name: 'FitLife Studios',
+    email: 'contact@fitlife.com',
+    phone: '+1 555 0400',
+    categoryId: '1',
+    duration: 'ONE_MONTH',
+    startDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+    payments: [
+      {
+        id: 'pay1004',
+        amount: 79.99,
+        date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+      },
+    ],
+  },
+  {
+    id: '1005',
+    name: 'Digital Dynamics',
+    email: 'support@digitaldynamics.net',
+    phone: '+1 555 0500',
+    categoryId: '2',
+    duration: 'ONE_WEEK',
+    startDate: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
+    payments: [
+      {
+        id: 'pay1005',
+        amount: 25.00,
+        date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
+        notes: 'Weekly campaign',
+      },
+    ],
+  },
+  {
+    id: '1006',
+    name: 'Sunny Cafe',
+    email: 'manager@sunnycafe.com',
+    phone: '+1 555 0600',
+    categoryId: '3',
+    duration: 'ONE_MONTH',
+    startDate: new Date(Date.now() - 26 * 24 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 26 * 24 * 60 * 60 * 1000).toISOString(),
+    payments: [
+      {
+        id: 'pay1006',
+        amount: 149.99,
+        date: new Date(Date.now() - 26 * 24 * 60 * 60 * 1000).toISOString(),
+        notes: 'Social media content creation',
+      },
+    ],
+  },
+];
+
 export const [SubscriptionProvider, useSubscription] = createContextHook(() => {
   const [clients, setClients] = useState<Client[]>([]);
   const [categories, setCategories] = useState<Category[]>(DEFAULT_CATEGORIES);
@@ -34,8 +144,10 @@ export const [SubscriptionProvider, useSubscription] = createContextHook(() => {
         } catch (parseError) {
           console.error('Error parsing clients data, clearing storage:', parseError);
           await AsyncStorage.removeItem(CLIENTS_STORAGE_KEY);
-          setClients([]);
+          setClients(DEFAULT_CLIENTS);
         }
+      } else {
+        setClients(DEFAULT_CLIENTS);
       }
       
       if (categoriesData) {
