@@ -96,7 +96,7 @@ export default function PrivacyScreen() {
           </Text>
           <TouchableOpacity
             style={styles.linkButton}
-            onPress={() => WebBrowser.openBrowserAsync('https://www.webbed.org.uk')}
+            onPress={() => WebBrowser.openBrowserAsync('http://www.webbed.org.uk')}
           >
             <Text style={styles.linkButtonText}>Visit www.webbed.org.uk</Text>
             <ExternalLink size={16} color={Colors.light.tint} />
@@ -113,7 +113,7 @@ export default function PrivacyScreen() {
           </Text>
           <TouchableOpacity
             style={styles.smallLinkButton}
-            onPress={() => WebBrowser.openBrowserAsync('https://www.webbed.org.uk')}
+            onPress={() => WebBrowser.openBrowserAsync('http://www.webbed.org.uk')}
           >
             <Text style={styles.smallLinkButtonText}>View Policies & Terms</Text>
           </TouchableOpacity>
