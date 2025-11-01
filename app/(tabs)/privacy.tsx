@@ -6,8 +6,8 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  Linking,
 } from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
 import { Shield, Lock, Database, Info, Trash2, ExternalLink, FileText } from 'lucide-react-native';
 import Colors from '@/constants/colors';
 import { useSubscription } from '@/contexts/SubscriptionContext';
@@ -96,7 +96,7 @@ export default function PrivacyScreen() {
           </Text>
           <TouchableOpacity
             style={styles.linkButton}
-            onPress={() => Linking.openURL('https://www.webbed.org.uk')}
+            onPress={() => WebBrowser.openBrowserAsync('https://www.webbed.org.uk')}
           >
             <Text style={styles.linkButtonText}>Visit www.webbed.org.uk</Text>
             <ExternalLink size={16} color={Colors.light.tint} />
@@ -113,7 +113,7 @@ export default function PrivacyScreen() {
           </Text>
           <TouchableOpacity
             style={styles.smallLinkButton}
-            onPress={() => Linking.openURL('https://www.webbed.org.uk')}
+            onPress={() => WebBrowser.openBrowserAsync('https://www.webbed.org.uk')}
           >
             <Text style={styles.smallLinkButtonText}>View Policies & Terms</Text>
           </TouchableOpacity>
