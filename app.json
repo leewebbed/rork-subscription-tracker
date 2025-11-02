@@ -11,14 +11,14 @@
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
-		"backgroundColor": "#2563EB"
+      "backgroundColor": "#2563EB"
     },
     "assetBundlePatterns": [
       "assets/**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "app.rork.subscription-tracker1",
+      "bundleIdentifier": "app.rork.subscription-tracker",
       "deploymentTarget": "13.4",
       "usesIcloudStorage": false
     },
@@ -27,7 +27,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "app.rork.subscription_tracker1"
+      "package": "app.rork.subscription_tracker"
     },
     "web": {
       "favicon": "./assets/images/favicon.png",
